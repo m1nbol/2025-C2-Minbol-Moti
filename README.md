@@ -29,11 +29,11 @@ Developed using **Swift** and **SwiftUI** in Xcode.
 - Swift (Version 6.0.3)
 
 ## 🙌 Author
-**Minbol**
-
-[Github Profile](https://github.com/m1nbol)
-
-Contact: lbmleebm@gmail.com
+| ![7AA11A29-88A0-4878-8C38-D05BB2289756](https://github.com/user-attachments/assets/4f3d65ff-cda6-41ed-9c6e-b0de6eec1553) |
+|--------------------------------------------------------------------------------------------------------------------------|
+| **Minbol** |
+| [Github Profile](https://github.com/m1nbol) |
+| Contact: lbmleebm@gmail.com |
 
 
 
