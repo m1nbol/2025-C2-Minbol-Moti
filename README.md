@@ -30,7 +30,9 @@ Developed using **Swift** and **SwiftUI** in Xcode.
 
 ## 🙌 Author
 **Minbol**
+
 [Github Profile](https://github.com/m1nbol)
+
 Contact: lbmleebm@gmail.com
 
 
