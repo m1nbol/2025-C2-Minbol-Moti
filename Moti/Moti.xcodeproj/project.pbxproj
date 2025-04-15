@@ -10,9 +10,22 @@
 		EE368D7A2DAE462200FFB79D /* Moti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EE368E5A2DAE8C1700FFB79D /* Exceptions for "Moti" folder in "Moti" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = EE368D792DAE462200FFB79D /* Moti */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EE368D7C2DAE462200FFB79D /* Moti */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EE368E5A2DAE8C1700FFB79D /* Exceptions for "Moti" folder in "Moti" target */,
+			);
 			path = Moti;
 			sourceTree = "<group>";
 		};
