@@ -10,7 +10,19 @@ import SwiftUI
 
 enum Route: Hashable {
     case board
+//    case goalCompose
+    case goalDetails
+//    case taskCompose
+}
+
+enum SheetRoute: Identifiable, Hashable {
     case goalCompose
-    case goalDetail
-    case todoCompose
+    case taskCompose
+    
+    var id: String {
+        switch self {
+        case .goalCompose: return "goalCompose"
+        case .taskCompose: return "taskCompose"
+        }
+    }
 }
