@@ -37,3 +37,15 @@ class NavigationRouter {
         presentedSheet = nil
     }
 }
+
+//extension NavigationRouter {
+//    @ViewBuilder
+//    func makeSheetView(sheet: SheetRoute) -> some View {
+//        switch sheet {
+//        case .goalCompose:
+//            GoalComposeView(router: Binding.constant(self))
+//        case .taskCompose:
+//            TaskComposeView(router: Binding.constant(self))
+//        }
+//    }
+//}
