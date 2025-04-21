@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MotiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BoardView()
         }
+        .modelContainer(for: Goal.self)
     }
 }
