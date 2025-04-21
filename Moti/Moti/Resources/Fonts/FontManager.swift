@@ -39,8 +39,28 @@ extension Font {
         return .custom(type.value, size: size)
     }
     
+    static var maintTextLight16: Font {
+        return .pretend(type: .light, size: 16)
+    }
+    
+    static var maintTextLight20: Font {
+        return .pretend(type: .light, size: 20)
+    }
+    
+    static var maintTextRegular20: Font {
+        return .pretend(type: .regular, size: 20)
+    }
+    
+    static var mainTextMedium24: Font {
+        return .pretend(type: .medium, size: 24)
+    }
+    
     static var mainTextSemiBold34: Font {
         return .pretend(type: .semibold, size: 34)
+    }
+    
+    static var mainTextBold16: Font {
+        return .pretend(type: .bold, size: 16)
     }
 
 }
