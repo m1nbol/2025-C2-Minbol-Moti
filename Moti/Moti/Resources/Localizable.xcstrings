@@ -1,0 +1,130 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    " %lld days" : {
+
+    },
+    " to go-keep going!" : {
+
+    },
+    "\"%@\" 목표가 완전히 삭제됩니다." : {
+
+    },
+    "%@" : {
+
+    },
+    "Enter your Goal" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter your Goal"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "목표를 입력하세요"
+          }
+        }
+      }
+    },
+    "Enter your Task" : {
+
+    },
+    "Goals" : {
+
+    },
+    "Moti" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moti"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moti"
+          }
+        }
+      }
+    },
+    "Once saved, your goal can’t be edited or deleted. Make sure everything looks right before you continue." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Once saved, your goal can’t be edited or deleted. Make sure everything looks right before you continue."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "한 번 저장하면 목표를 수정하거나 삭제할 수 없습니다. 저장 전에 꼭 다시 한 번 확인해 주세요."
+          }
+        }
+      }
+    },
+    "Only" : {
+
+    },
+    "Save" : {
+
+    },
+    "Set your goal carefully" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set your goal carefully"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "목표를 신중하게 설정하세요"
+          }
+        }
+      }
+    },
+    "You've selected a goal duration of %lld days" : {
+
+    },
+    "You’ve selected a goal duration of days." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve selected a goal duration of days."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "목표 기간을 일로 설정했어요."
+          }
+        }
+      }
+    },
+    "삭제" : {
+
+    },
+    "이 목표를 정말 삭제하시겠습니까?" : {
+
+    },
+    "취소" : {
+
+    }
+  },
+  "version" : "1.0"
+}
