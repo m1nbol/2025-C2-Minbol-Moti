@@ -6,15 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EEB7915A2DB61F1400C81B79 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EEB791592DB61F1400C81B79 /* Lottie */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		EE368D7A2DAE462200FFB79D /* Moti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		EE368E5A2DAE8C1700FFB79D /* Exceptions for "Moti" folder in "Moti" target */ = {
+		EEB7919B2DB6231B00C81B79 /* Exceptions for "Moti" folder in "Moti" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Resources/Info.plist,
+				Info.plist,
 			);
 			target = EE368D792DAE462200FFB79D /* Moti */;
 		};
@@ -24,7 +28,7 @@
 		EE368D7C2DAE462200FFB79D /* Moti */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				EE368E5A2DAE8C1700FFB79D /* Exceptions for "Moti" folder in "Moti" target */,
+				EEB7919B2DB6231B00C81B79 /* Exceptions for "Moti" folder in "Moti" target */,
 			);
 			path = Moti;
 			sourceTree = "<group>";
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB7915A2DB61F1400C81B79 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = Moti;
 			packageProductDependencies = (
+				EEB791592DB61F1400C81B79 /* Lottie */,
 			);
 			productName = Moti;
 			productReference = EE368D7A2DAE462200FFB79D /* Moti.app */;
@@ -104,9 +110,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = EE368D712DAE462200FFB79D;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EEB791582DB61F1400C81B79 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EE368D7B2DAE462200FFB79D /* Products */;
 			projectDirPath = "";
@@ -197,6 +207,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -253,6 +264,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -268,6 +280,7 @@
 				DEVELOPMENT_TEAM = UKZF3A6P2B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Moti/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -299,6 +312,7 @@
 				DEVELOPMENT_TEAM = UKZF3A6P2B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Moti/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -341,6 +355,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EEB791582DB61F1400C81B79 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EEB791592DB61F1400C81B79 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEB791582DB61F1400C81B79 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EE368D722DAE462200FFB79D /* Project object */;
 }
