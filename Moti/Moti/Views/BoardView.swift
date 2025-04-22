@@ -38,32 +38,32 @@ struct BoardView: View {
                         }
                         .padding(.vertical, 10)
                     }
-                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        Button {
-                            goalToDelete = goal
-                            showDeleteAlert = true
-                        } label: {
-                            Label("삭제", systemImage: "trash")
-                        }
-                        .tint(.red)
-                    }
+//                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+//                        Button {
+//                            goalToDelete = goal
+//                            showDeleteAlert = true
+//                        } label: {
+//                            Label("삭제", systemImage: "trash")
+//                        }
+//                        .tint(.red)
+//                    }
                 }
             }
             .listStyle(.plain)
             
-            .alert("이 목표를 정말 삭제하시겠습니까?", isPresented: $showDeleteAlert, actions: {
-                Button("취소", role: .cancel) { }
-                Button("삭제", role: .destructive) {
-                    if let goal = goalToDelete {
-                        modelContext.delete(goal)
-                        goalToDelete = nil
-                    }
-                }
-            }, message: {
-                if let goal = goalToDelete {
-                    Text("\"\(goal.context)\" 목표가 완전히 삭제됩니다.")
-                }
-            })
+//            .alert("이 목표를 정말 삭제하시겠습니까?", isPresented: $showDeleteAlert, actions: {
+//                Button("취소", role: .cancel) { }
+//                Button("삭제", role: .destructive) {
+//                    if let goal = goalToDelete {
+//                        modelContext.delete(goal)
+//                        goalToDelete = nil
+//                    }
+//                }
+//            }, message: {
+//                if let goal = goalToDelete {
+//                    Text("\"\(goal.context)\" 목표가 완전히 삭제됩니다.")
+//                }
+//            })
             
             .navigationTitle("Goals")
             .toolbar {
@@ -81,12 +81,14 @@ struct BoardView: View {
                 switch route {
                 case .goalDetails(let goal):
                     GoalDetailsView(goal: goal)
+                    
                 }
             }
         }
         .sheet(item: $router.presentedSheet) { sheet in
             GoalComposeView(router: $router)
         }
+//        .border(.blue, width: 10)
     }
 }
 
