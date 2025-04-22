@@ -21,8 +21,11 @@ struct TaskComposeView: View {
             VStack {
                 TextField("Enter your Task", text: $taskContext)
                     .autocorrectionDisabled()
-                    .font(.mainTextSemiBold34)
+                    .font(.mainTextMedium20)
+                    .padding(.all, 31)
+                Spacer()
             }
+            .background(.backgroundGray)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
@@ -36,7 +39,6 @@ struct TaskComposeView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
-                        // 저장해야 함
                         saveTask()
                         router.dismissSheet()
                     } label: {
