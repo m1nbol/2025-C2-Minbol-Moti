@@ -4,17 +4,45 @@
     "" : {
 
     },
-    " %lld days" : {
-
+    " %lld일" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld일"
+          }
+        }
+      }
     },
-    " to go-keep going!" : {
-
-    },
-    "\"%@\" 목표가 완전히 삭제됩니다." : {
-
+    " 남았어요. 끝까지 함께해요!" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "남았어요. 끝까지 함께해요!"
+          }
+        }
+      }
     },
     "%@" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%lld/20" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld/20"
+          }
+        }
+      }
     },
     "Enter your Goal" : {
       "extractionState" : "manual",
@@ -34,10 +62,24 @@
       }
     },
     "Enter your Task" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "할 일을 입력하세요."
+          }
+        }
+      }
     },
     "Goals" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goals"
+          }
+        }
+      }
     },
     "Moti" : {
       "extractionState" : "manual",
@@ -73,11 +115,15 @@
         }
       }
     },
-    "Only" : {
-
-    },
     "Save" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장하기"
+          }
+        }
+      }
     },
     "Set your goal carefully" : {
       "extractionState" : "manual",
@@ -96,9 +142,6 @@
         }
       }
     },
-    "You've selected a goal duration of %lld days" : {
-
-    },
     "You’ve selected a goal duration of days." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -116,13 +159,57 @@
         }
       }
     },
+    "로 설정했어요." : {
+
+    },
+    "목표 기간을" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "목표 기간을 "
+          }
+        }
+      }
+    },
+    "목표를 달성하셨나요?" : {
+
+    },
+    "목표를 신중하게 설정하세요." : {
+
+    },
+    "목표를 입력해 주세요." : {
+
+    },
+    "목표일이에요! 달성하셨나요?" : {
+
+    },
     "삭제" : {
 
     },
-    "이 목표를 정말 삭제하시겠습니까?" : {
+    "삭제한 할 일은 복구할 수 없습니다." : {
+
+    },
+    "저장하기" : {
+
+    },
+    "정말 삭제하시겠어요?" : {
 
     },
     "취소" : {
+
+    },
+    "한 번 저장하면 목표를 수정하거나 삭제할 수 없어요. 저장 전에 다시 한 번 확인해 주세요." : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "한 번 저장하면 목표를 수정하거나 삭제할 수 없어요. 저장 전에 다시 한 번 확인해 주세요."
+          }
+        }
+      }
+    },
+    "확인" : {
 
     }
   },
