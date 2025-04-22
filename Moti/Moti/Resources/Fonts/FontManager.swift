@@ -51,6 +51,10 @@ extension Font {
         return .pretend(type: .regular, size: 20)
     }
     
+    static var mainTextMedium16: Font {
+        return .pretend(type: .medium, size: 16)
+    }
+    
     static var mainTextMedium20: Font {
         return .pretend(type: .medium, size: 20)
     }
