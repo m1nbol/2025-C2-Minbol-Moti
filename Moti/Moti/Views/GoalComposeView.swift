@@ -17,6 +17,7 @@ struct GoalComposeView: View {
     @State private var dueDate: Date = Date()
     
     @State private var showSaveAlert: Bool = false
+    @State private var showEmptyAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -24,8 +25,19 @@ struct GoalComposeView: View {
                 TextField("Enter your Goal", text: $goalContext)
                     .autocorrectionDisabled()
                     .font(.mainTextSemiBold34)
+                    .onChange(of: goalContext) { _, newValue in
+                        if newValue.count > 20 {
+                            goalContext = String(newValue.prefix(20))
+                        }
+                    }
                 HStack {
-                    DatePicker("", selection: $dueDate, displayedComponents: [.date])
+                    Spacer()
+                    Text("\(goalContext.count)/20")
+                        .font(.mainTextMedium16)
+                        .foregroundColor(goalContext.count >= 20 ? .red : .gray)
+                }
+                HStack {
+                    DatePicker("", selection: $dueDate, in: .now..., displayedComponents: [.date])
                         .tint(.mainBlue)
                         .labelsHidden()
                     Spacer()
@@ -55,15 +67,21 @@ struct GoalComposeView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
-//                        saveGoal()
-//                        router.dismissSheet()
-                        showSaveAlert = true
+                        if goalContext.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            showEmptyAlert = true
+                        } else {
+                            showSaveAlert = true
+                        }
                     } label: {
                         Text("저장하기")
                             .font(.mainTextSemiBold18)
                     }
                 }
             }
+            .alert("목표를 입력해 주세요.", isPresented: $showEmptyAlert) {
+                Button("확인", role: .cancel) {}
+            }
+            
             .alert("목표를 신중하게 설정하세요.", isPresented: $showSaveAlert) {
                 Button("취소", role: .cancel) {}
                 Button("저장하기") {
