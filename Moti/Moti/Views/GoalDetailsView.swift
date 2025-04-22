@@ -10,15 +10,19 @@ import Lottie
 
 struct GoalDetailsView: View {
     @State private var router = NavigationRouter()
+    @Environment(\.modelContext) private var modelContext
+    
     @GestureState private var dragOffset: CGFloat = 0
     @State private var scrollProxy: ScrollViewProxy? = nil
     
-    let goal: Goal
-    @State private var dueDate: Date = Date()
-    @State private var isTouching = false
-    @StateObject private var controller = LottieController()
-    
+    @Bindable var goal: Goal
     @State private var selectedTask: Task?
+    @State private var dueDate: Date = Date()
+    
+    @State private var isTouching = false
+    @State private var showDeleteButton = false
+    @State private var showDeleteAlert = false
+    @StateObject private var controller = LottieController()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 28) {
@@ -42,14 +46,19 @@ struct GoalDetailsView: View {
             HStack {
                 Spacer()
                 Group {
-                    Text("Only")
-                        .font(.maintTextLight16)
-                    +
-                    Text(" \(goal.daysRemaining) days")
-                        .font(.mainTextBold16)
-                    +
-                    Text(" to go-keep going!")
-                        .font(.maintTextLight16)
+                    if goal.daysRemaining > 0 {
+                        Text(" \(goal.daysRemaining)일")
+                            .font(.mainTextBold16)
+                        +
+                        Text(" 남았어요. 끝까지 함께해요!")
+                            .font(.maintTextLight16)
+                    } else if goal.daysRemaining == 0 {
+                        Text("목표일이에요! 달성하셨나요?")
+                            .font(.mainTextBold16)
+                    } else {
+                        Text("목표를 달성하셨나요?")
+                            .font(.mainTextBold16)
+                    }
                 }
                 .foregroundStyle(.mainBlue)
                 Spacer()
@@ -59,8 +68,10 @@ struct GoalDetailsView: View {
             
             ZStack {
                 if let task = selectedTask {
+                    
                     LottieView(animationName: "checkAnimationColored", controller: controller)
-                        .frame(width: 400, height: 400)
+                    //                        .frame(width: 400, height: 400)
+                        .frame(maxWidth: .infinity)
                     Text(isTouching || controller.isChecked ? "" : task.context)
                         .font(.mainTextMedium24)
                         .foregroundColor(.mainBlue)
@@ -77,8 +88,10 @@ struct GoalDetailsView: View {
                                     controller.playReverseToStart()
                                 }
                         )
+                    
                 }
             }
+            
             //MARK: Swipe Code
             .contentShape(Rectangle()) // 스와이프 범위 확장
             .gesture(
@@ -92,11 +105,22 @@ struct GoalDetailsView: View {
                             // 👉 오른쪽으로 스와이프 → 다음 task
                             withAnimation {
                                 selectedTask = tasks[index + 1]
+                                showDeleteButton = false
                             }
                         } else if value.translation.width > threshold, index > 0 {
                             // 👈 왼쪽으로 스와이프 → 이전 task
                             withAnimation {
                                 selectedTask = tasks[index - 1]
+                                showDeleteButton = false
+                            }
+                        }
+                        
+                        let thresholdVertical: CGFloat = 30
+                        withAnimation {
+                            if value.translation.height < -thresholdVertical {
+                                showDeleteButton = true
+                            } else if value.translation.height > thresholdVertical {
+                                showDeleteButton = false
                             }
                         }
                     }
@@ -108,9 +132,6 @@ struct GoalDetailsView: View {
                 }
             }
             .onChange(of: selectedTask) { _, newTask in
-//                if let task = newTask {
-//                    controller.isChecked = task.isChecked
-//                }
                 if let task = newTask {
                     if task.isChecked {
                         controller.isChecked = true
@@ -119,6 +140,41 @@ struct GoalDetailsView: View {
                         controller.isChecked = false
                         controller.animationView?.currentProgress = 0.0
                     }
+                }
+            }
+            
+            if let currentTask = selectedTask {
+                if currentTask.isChecked {
+                    HStack {
+                        Spacer()
+                        Text(currentTask.context)
+                            .font(.mainTextMedium20)
+                            .foregroundStyle(.mainGray)
+                            .transition(.opacity)
+                        Spacer()
+                    }
+                }
+            }
+            
+            if showDeleteButton {
+                HStack {
+                    Spacer()
+                    Button(role: .destructive) {
+                        showDeleteAlert = true
+                    } label: {
+                        Image(systemName: "trash")
+                            .frame(width: 40, height: 40)
+                    }
+                    .alert("정말 삭제하시겠어요?", isPresented: $showDeleteAlert) {
+                        Button("취소", role: .cancel) {}
+                        Button("삭제", role: .destructive) {
+                            deleteSelectedTask()
+                        }
+                    } message: {
+                        Text("삭제한 할 일은 복구할 수 없습니다.")
+                    }
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    Spacer()
                 }
             }
             
@@ -138,28 +194,6 @@ struct GoalDetailsView: View {
                                     }
                                 )
                             }
-                            // ✅ “+” 추가 버튼 Bubble
-    //                        VStack(spacing: 4) {
-    //                            Button {
-    //                                router.presentSheet(.taskCompose)
-    //                            } label: {
-    //                                Image(systemName: "plus")
-    //                                    .font(.maintTextLight20)
-    //                                    .frame(width: 40, height: 40)
-    //                                    .background(
-    //                                        Circle()
-    //                                            .strokeBorder(Color.mainBlue, lineWidth: 2)
-    //                                            .background(Circle().fill(Color.white))
-    //                                    )
-    //                                    .foregroundStyle(.mainBlue)
-    //                            }
-    //                            .buttonStyle(.plain)
-    //                            Color.clear
-    //                                .frame(height: 5)
-    //                                .padding(.top, 5)
-    //                        }
-                            // 추가버튼 끝
-                            
                             // ✅ “+” 추가 버튼 Bubble(Ivory BG Ver)
                             VStack(spacing: 4) {
                                 Button {
@@ -205,15 +239,39 @@ struct GoalDetailsView: View {
                 }
             }
         }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 16)
+//        .frame(maxWidth: .infinity)
         .sheet(item: $router.presentedSheet) { sheet in
             TaskComposeView(router: $router, goal: goal)
         }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
+//        .border(.red, width: 20)
         .onAppear {
             if selectedTask == nil, let tasks = goal.taskList, !tasks.isEmpty {
                 selectedTask = tasks.last // 최신 항목 선택
             }
+        }
+    }
+    
+    private func deleteSelectedTask() {
+        guard let task = selectedTask,
+              var tasks = goal.taskList,
+              let index = tasks.firstIndex(of: task) else { return }
+        
+        modelContext.delete(task)
+        
+        tasks.remove(at: index)
+        goal.taskList = tasks
+        
+        if tasks.indices.contains(index) {
+            selectedTask = tasks[index]
+            showDeleteButton = false
+        } else if tasks.indices.contains(index-1) {
+            selectedTask = tasks[index-1]
+            showDeleteButton = false
+        } else {
+            showDeleteButton = false
+            selectedTask = nil
         }
     }
 }
